@@ -15,7 +15,9 @@ bundle exec rails new $TESTAPP_NAME --skip-bundle
 
 unset BUNDLE_GEMFILE
 
-echo  "gem 'feature', path: '../../../..'" >> $TESTAPP_NAME/Gemfile
+LOCAL_FEATURE_GEM_PATH=$(bash -c 'cd ../../.. && pwd')
+
+echo  "gem 'feature', path: '${LOCAL_FEATURE_GEM_PATH}'" >> $TESTAPP_NAME/Gemfile
 
 cd $TESTAPP_NAME
 
